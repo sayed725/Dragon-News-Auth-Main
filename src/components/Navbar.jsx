@@ -28,6 +28,10 @@ const Navbar = () => {
           <Link to='/auth/login'  className="btn btn-neutral rounded-none">Login</Link>
         </div>
       </div>
+
+      // daisyui navbar 
+
+
     //     <div className="navbar bg-base-100 items-center">
     //     <div className="navbar-start">
     //       <div className="dropdown">
