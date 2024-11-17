@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Provider/AuthProvider';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 const Register = () => {
 
@@ -8,6 +9,7 @@ const Register = () => {
 
     const { createNewUser, setUser , updateUserProfile } = useContext(AuthContext)
     const [error , setError] = useState({})
+    const [showPassword , setShowPassword] = useState(false)
 
 
 
@@ -82,13 +84,15 @@ const Register = () => {
                         </label>
                         <input type="email" required name="email" placeholder="Email" className="input input-bordered" />
                     </div>
-                    <div className="form-control">
+                    <div className="form-control relative">
                         <label className="label">
                             <span className="label-text">Password</span>
                         </label>
-                        <input type="password" required name="password" placeholder="Password" className="input input-bordered" />
-                        <label className="label">
-                            <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
+                        <input type={showPassword?"text":"password"} required name="password" placeholder="Password" className="input input-bordered" />
+
+                        <label  onClick={() => setShowPassword(!showPassword)} className="label justify-start cursor-pointer">
+                        <input type="checkbox" name='terms' className="checkbox" />
+                        <span className="label-text ml-2">Show Password</span>
                         </label>
                     </div>
                     <div className="form-control mt-6">

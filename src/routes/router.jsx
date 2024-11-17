@@ -7,6 +7,8 @@ import Login from '../Pages/Login';
 import Register from '../Pages/Register';
 import NewsDetail from '../Pages/NewsDetail';
 import PrivateRoute from '../Pages/PrivateRoute';
+import Career from '../components/Career';
+import About from '../components/About';
 
 const router = createBrowserRouter([
     {
@@ -47,8 +49,17 @@ const router = createBrowserRouter([
         ]
     },
     {
+        path:'/career',
+        element:<Career></Career>
+    },
+    {
+        path:'/about',
+        element:<PrivateRoute><About></About></PrivateRoute>
+    },
+
+    {
         path:'*',
-        element: <h1>Error</h1>
+        element: <h1 className='text-5xl text-center'>Error</h1>
     }
 ])
 

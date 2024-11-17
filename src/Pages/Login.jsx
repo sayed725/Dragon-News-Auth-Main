@@ -6,6 +6,7 @@ const Login = () => {
 
     const { userLogIn , setUser } = useContext(AuthContext)
     const [error , setError] = useState({})
+    const [showPassword , setShowPassword] = useState(false)
 
     const location = useLocation()
 
@@ -48,12 +49,16 @@ const Login = () => {
                         <label className="label">
                             <span className="label-text">Password</span>
                         </label>
-                        <input type="password" required name="password" placeholder="Password" className="input input-bordered" />
+                        <input type={showPassword?"text":"password"} required name="password" placeholder="Password" className="input input-bordered" />
                         {
                             error.Login && ( <label className="label text-sm text-red-600">
                                {error.Login}
                             </label>)
                         }
+                      <label  onClick={() => setShowPassword(!showPassword)} className="label justify-start cursor-pointer">
+                        <input type="checkbox" name='terms' className="checkbox" />
+                        <span className="label-text ml-2">Show Password</span>
+                        </label>
                         <label className="label">
                             <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                         </label>
